@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        background: rgb(240, 240, 240);
+        -webkit-transition: .4s;
+    }
+
+    #header h2{
+        padding: 20px;
+        font-size: 28px;
+        font-family: Arial;
+    }
+
+     h3{
+        font-size: 18px;
+        padding-left: 50px;
+        font-family: Arial;
+    }
+
+    #container{
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+
+    .container-1{
+        width: 200px;
+        height: 200px;
+        border-radius: 10px;
+        background: whitesmoke;
+        box-shadow: 0 8px 18px rgba(0,0,0,0.3);
+        margin-top: 30px
+    }
+
+    .box-1{
+        border-top: 5px solid rgb(0,0,225);
+    }
+
+    .box-2{
+        border-top: 5px solid rgb(20,140,200);
+    }
+
+    .box-3{
+        border-top: 5px solid rgb(223, 50, 200);
+    }
+
+    .box-4{
+        border-top: 5px solid rgb(219, 75, 8);
+    }
+
+    .switch{
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+        float: right;
+    }
+
+    .switch input{
+        opacity: 1;
+        width: 20px;
+        height: 20px;
+    }
+    
+    .slider{
+        background:rgb(200, 200, 200);
+        position: absolute;
+        cursor: pointer;
+        top:0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: 34px;
+        -webkit-transition: .4s;
+    }
+
+    .slider:before{
+        border-radius: 50%;
+        position: absolute;
+        content: '';
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background:white;
+        -webkit-transition: .4s;
+
+    }
+
+    input:checked + .slider{
+        background: rgb(0, 0, 0);
+    } 
+
+    input:checked + .slider:before{
+        -webkit-transform: translateX(26px);
+        background-color: rgb(220, 220, 220);
+    }
+    
+
+    #dark{
+        font-size: 17px;
+    }
+</style>
+<body id="body">
+    <div id="header">
+        <h2>Social Media Dashboard
+        <label class='switch'>
+            <input type="checkbox" name="" id="check" onclick=myfunction()>
+            <span class="slider"></span><br>
+            <span id="dark">DarkMode</span>
+        </label></h2>
+        <h3>Total Followers: 23,004</h3>
+    </div>
+    <div id="container">
+        <div class="container-1 box-1">
+        </div>
+        <div class="container-1 box-2 ">
+        </div>
+        <div class="container-1 box-3">
+        </div>
+        <div class="container-1 box-4">
+        </div>
+    </div>
+
+    <script>
+        function myfunction(){
+            var body = document.getElementById('body');
+            var check = document.getElementById('check');
+            var box = document.querySelectorAll('.container-1');
+
+            if (check.checked){
+            body.style.background='rgb(60,60,60)';
+            body.style.color = 'white';
+            for ( var i=0; i<box.length; i++){
+                box[i].style.backgroundColor='rgb(100,100,100)';
+            }
+            }
+
+            else{
+                body.style.background='rgb(240,240,240)';
+                body.style.color = 'black';
+                for ( var i=0; i<box.length; i++){
+                box[i].style.backgroundColor='whitesmoke';
+            }
+            }
+
+        }
+    </script>
+</body>
+</html>
